@@ -4,14 +4,14 @@
     Age: Cleft with Jalak paged in
     Date: December, 2012
     Author: Stone (01141040)
-    This is a very stripped version of the Soccer Field.
+    This is a stripped version of the Cleft/Jalak Soccer Field.
 '''
 '''
     Date: December, 2012
-    Im not comfortable publishing a few of the functions i used to build this.
-    So dumped all the matrix data for the columns into a dictionary.
+    I'm not comfortable publishing a few functions used to build this.
+    So I dumped the matrix data for the columns into a dictionary.
     Then made a simple warp to set up the field using that dictionary.
-    I'll try to add more when i have time but this should be sufficient to get you started.
+    I'll try to add more when I have time. This should be sufficient to get you started.
 '''
 
 from Plasma import *
@@ -23,18 +23,18 @@ columnMap = {'columnPhys_00' : ((-4.37113904953e-08, 0.0, 1.0, 46.9999980927), (
 
 # Soccer.Field()
 def Field():
-    ''' Set up the field by warp the columns to the matrix data in the columnMap. '''
-    for column in columnMap:                            # go through every column name in the dictionary
-        object = PtFindSceneobject(column, 'Jalak')         # find the scene object from its name.
-        matrix = ptMatrix44()                               # create a new empty matrix
-        matrix.setData(columnMap[column])                   # set the new matrix to the data in the dictionary.
-        object.netForce(1)                                  # send over the net so others can see.
-        object.physics.warp(matrix)                         # warp object to the new matrix.
+    ''' Set up the field by warping the columns to the matrix data in the columnMap. '''
+    for column in columnMap:                            # Go through the column names in the dictionary.
+        object = PtFindSceneobject(column, 'Jalak')         # Find a sceneobject from its name and age.
+        matrix = ptMatrix44()                               # Create an empty matrix.
+        matrix.setData(columnMap[column])                   # Set the matrix to the data in the dictionary entry.
+        object.netForce(1)                                  # Force object messages to the network.
+        object.physics.warp(matrix)                         # Warps the sceneobject to the matrix.
 
 
 # Soccer.Ball()
 def Ball():
-    ''' Warp the ball to the center of the soccer field. '''
-    object = PtFindSceneobject('Sphere1', 'Jalak')  # get the sphere as a scene object.
-    object.netForce(1)                              # send over the net so others can see.
-    object.physics.warp(ptPoint3(77, 975, 1.75))    # warp object to the ptPoint3.
+    ''' Warp the ball to the center of the field. '''
+    object = PtFindSceneobject('Sphere1', 'Jalak')  # Find a sceneobject from its name and age.
+    object.netForce(1)                              # Force object messages to the network.
+    object.physics.warp(ptPoint3(77, 975, 1.75))    # Warps the sceneobject to a specified location.
