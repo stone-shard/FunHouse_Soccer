@@ -8,8 +8,7 @@
 '''
 '''
     Date: December, 2012
-    I'm not comfortable publishing a few functions used to build this.
-    So I dumped the matrix data for the columns into a dictionary.
+    I dumped the matrix data for the columns into a dictionary.
     Then made a simple warp to set up the field using that dictionary.
     I'll try to add more when I have time. This should be sufficient to get you started.
 '''
@@ -37,4 +36,4 @@ def Ball():
     ''' Warp the ball to the center of the field. '''
     object = PtFindSceneobject('Sphere1', 'Jalak')  # Find a sceneobject from its name and age.
     object.netForce(1)                              # Force object messages to the network.
-    object.physics.warp(ptPoint3(77, 975, 1.75))    # Warps the sceneobject to a specified location.
+    object.physics.warp(ptPoint3(77, 975, 1.75))    # Warp the sceneobject to the specified location.
